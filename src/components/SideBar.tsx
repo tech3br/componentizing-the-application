@@ -19,6 +19,10 @@ export function SideBar({
   setSelectedGenreId,
   selectedGenreId,
 }: SideBarProps) {
+  function handleClickButton(id: number) {
+    setSelectedGenreId(id);
+  }
+
   return (
     <nav className="sidebar">
       <span>{title}</span>
@@ -28,7 +32,7 @@ export function SideBar({
             key={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
-            onClick={() => setSelectedGenreId(genre.id)}
+            onClick={() => handleClickButton(genre.id)}
             selected={selectedGenreId === genre.id}
           />
         ))}
@@ -36,5 +40,3 @@ export function SideBar({
     </nav>
   );
 }
-
-export default SideBar;
